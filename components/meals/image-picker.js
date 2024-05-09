@@ -8,10 +8,13 @@ const ImagePicker = ({ label, name }) => {
   const imageInputRef = useRef();
 
   const handlePickCLick = () => {
+    console.log("here");
     imageInputRef.current.click();
   };
 
   const handleImageChange = (e) => {
+    console.log("yes");
+    console.log(e);
     const file = e.target.files[0];
     if (!file) {
       setImage(null);
@@ -42,7 +45,7 @@ const ImagePicker = ({ label, name }) => {
           accept="image/png, image/jpeg"
           name={name}
           ref={imageInputRef}
-          onChange={(e) => handleImageChange()}
+          onChange={handleImageChange}
           required
         />
         <button
